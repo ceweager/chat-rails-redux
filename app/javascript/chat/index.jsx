@@ -28,7 +28,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/channels/:channel" component={App} />
+        <Route path="/channels/:channel" exact component={App} />
       </Switch>
     </BrowserRouter>
   </Provider>,

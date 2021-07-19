@@ -17,6 +17,7 @@ class ChannelList extends Component {
   }
 
   renderChannel = (channel) => {
+    console.log(this.props);
     return (
       <li
         key={channel}
@@ -41,15 +42,8 @@ class ChannelList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    channels: state.channels,
-    selectedChannel: state.selectedChannel
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectChannel, fetchMessages }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+export default connect(null, mapDispatchToProps)(ChannelList);

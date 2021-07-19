@@ -11,23 +11,23 @@ class MessageList extends Component {
     this.fetchMessages();
   }
 
-  componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 5000);
-  }
+  // componentDidMount() {
+  //   this.refresher = setInterval(this.fetchMessages, 5000);
+  // }
 
   componentDidUpdate() {
     this.list.scrollTop = this.list.scrollHeight;
   }
 
-  componentWillUnmount() {
-    clearInterval(this.refresher);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.refresher);
+  // }
 
   fetchMessages = () => {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
-  render () {
+  render() {
     return (
       <div className="channel-container">
         <div className="channel-title">
@@ -46,15 +46,8 @@ class MessageList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    messages: state.messages,
-    selectedChannel: state.selectedChannel
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchMessages }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
+export default connect(null, mapDispatchToProps)(MessageList);
